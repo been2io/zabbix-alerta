@@ -67,10 +67,14 @@ def main():
         elif macro == 'thresholdInfo':
             macro = 'attributes'
             value = {'thresholdInfo': value}
-
         alert[macro] = value
         LOG.debug('%s -> %s', macro, value)
-
+    try:
+        alert['service']=[alert['event'].split['['][0]]
+        alert['resource'] = "%s:%s"%alert['resource'],alert['event']
+        alert['event'] = alert['text'].split('--')[0]
+    except Exception as e:
+        LOG.exception(e)
     if 'status' in alert:
         if alert['status'] == 'OK':
             alert['severity'] = 'normal'
