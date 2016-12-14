@@ -22,7 +22,7 @@ ZBX_SEVERITY_MAP = {
     'Average':        'minor',
     'Warning':        'warning',
     'Information':    'informational',
-    'Not classified': 'unknown',
+    'Not classified': 'indeterminate',
 }
 
 
